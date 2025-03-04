@@ -10,21 +10,21 @@
   <body>
     <h1>Site Unblocker</h1>
     <input type="text" id="link" value="">
-    <button type="button"; onclick = "update()">Update Link</button>
+    <button type="button" onclick="update()">Update Link</button>
     <br>
     <input type="checkbox" id="proxy">
-    <label for = "proxy"> Don't use proxy (Required for firewalls, may fix problems)</label><br>
+    <label for="proxy"> Don't use proxy (Required for firewalls, may fix problems)</label><br>
 
     <input type="checkbox" id="exploit">
-    <label for = "exploit"> Don't use exploit (If search is flagged)</label><br>
+    <label for="exploit"> Don't use exploit (If search is flagged)</label><br>
     <br><br><br>
-    <a href="#" ID="go">Unblocked Link</a><br>
+    <a href="#" id="go" target="_blank">Unblocked Link</a><br>
     <br><br>
+    <iframe id="proxyFrame" width="100%" height="600px" style="border:none;"></iframe>
     <h2>About</h2>
-    <p>Unblocks most sites. Static sites and articles work best. Some sites break with the proxy, but this is the most unblocked you can get.<br>Just paste a url into the box, and update the link. Click "Unblocked Link" to get an unblocked version.<br>This site uses Google Translate as a proxy to access blocked sites, as the first layer.<br>Then, as the second layer it exploits a feature of Securly, tricking it into thinking we're visiting a suicide prevention website. 
-     <br>There's a failsafe for this, and it allowes us through. <br>
-    If you get an error, try again later or use a different site. It may just be that the site has too much JS/CSS.<br> Tested on Securly so far. Not every site works with this. Also, if you get flagged for suicide, (Unlikely), check "No exploit".<br><br>Message me with questions on discord: Henry21#6630</p>
-    <br><br>
+    <p>Unblocks most sites. Static sites and articles work best. Some sites break with the proxy, but this is the most unblocked you can get.<br>Just paste a url into the box, and update the link.
+    <br>There's a failsafe for this, and it allows us through. <br>
+    If you get an error, try again later or use a different site. It may just be that the site has too much JS/CSS.<br> Tested on Securly so far. Not every site works with this. Also, if you get flagged, disable the exploit.<br><br>
     
     <h2>Want a list of working unblocked sites?</h2>
     <a href="wiki.html">The Unblocked Wiki</a>
@@ -45,10 +45,11 @@
       }
 
       if (noexploit == false) {
-      link = link + "?suicidepreventionlifeline.org";
+        link = link + "?suicidepreventionlifeline.org";
       }
 
       document.getElementById("go").href = link;
+      document.getElementById("proxyFrame").src = link;
     }
   </script>
 </html>
